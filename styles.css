@@ -1,5 +1,5 @@
 :root {
-  --bg: #111111;
+  --bg: #0a0d12;
   --line: #273245;
   --text: #d9f7ff;
   --muted: #92a8bd;
@@ -11,7 +11,7 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", system-ui, sans-serif;
-  background: radial-gradient(circle at 18% 0%, #1f1f1f 0%, #171717 35%, var(--bg) 100%), var(--bg);
+  background: radial-gradient(circle at 20% 0%, #151d2e 0%, var(--bg) 50%), var(--bg);
   color: var(--text);
 }
 .scanlines { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.02), rgba(255,255,255,.02) 1px, transparent 2px, transparent 4px); }
