@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"><channel>
+<title>Byte & Brew</title>
+<link>https://example.com</link>
+<description>Blog markdown-first</description>
+<item><title>Sistema de Escritura Terminal-First</title><link>https://example.com/blog/sistema-escritura-terminal</link><pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate><description>Cómo diseñar un flujo de escritura diario sin fricción usando Markdown, rituales y automatización.</description></item>
+<item><title>Deep Work con Café, sin Romantizar</title><link>https://example.com/blog/deep-work-con-cafe</link><pubDate>Wed, 11 Feb 2026 00:00:00 GMT</pubDate><description>Un protocolo simple para proteger bloques de concentración real sin caer en postureo de productividad.</description></item>
+<item><title>Automatiza tu Blog con Markdown + JS</title><link>https://example.com/blog/automatiza-tu-blog-markdown</link><pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate><description>Patrón simple para separar contenido de lógica, renderizar posts y escalar tu blog sin CMS pesado.</description></item>
+</channel></rss>
