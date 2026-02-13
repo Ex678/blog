@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Byte & Brew — Terminal Blog Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="prompt">guest@bytebrew:~$</span>
+        <h1>Byte & Brew</h1>
+      </div>
+      <p class="subtitle">Editor + Portal de lectura. Misma estética, dos experiencias.</p>
+      <div class="quick-actions">
+        <button id="goEditorBtn">Modo editor</button>
+        <button id="goReaderBtn">Modo lector</button>
+        <button id="loginBtn">Login editor</button>
+        <button id="logoutBtn">Salir editor</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="editorView" class="layout hidden">
+        <aside class="panel left-panel">
+          <section>
+            <h2>Archivo</h2>
+            <input type="search" id="searchInput" placeholder="Buscar título o etiqueta..." />
+            <select id="filterStatus">
+              <option value="all">Todos</option>
+              <option value="published">Publicados</option>
+              <option value="draft">Borradores</option>
+            </select>
+            <ul id="postList" class="post-list"></ul>
+          </section>
+          <section class="stats">
+            <h2>Métricas rápidas</h2>
+            <p><strong id="totalPosts">0</strong> artículos</p>
+            <p><strong id="totalWords">0</strong> palabras escritas</p>
+            <p><strong id="focusMeter">0</strong> min de lectura total</p>
+          </section>
+        </aside>
+
+        <section class="editor panel">
+          <div class="quick-actions">
+            <button id="newPostBtn">+ Nuevo artículo</button>
+            <button id="saveDraftBtn">Guardar borrador</button>
+            <button id="publishBtn">Publicar</button>
+            <button id="exportBtn">Exportar JSON</button>
+            <label class="import-btn">Importar JSON<input type="file" id="importInput" accept="application/json" /></label>
+          </div>
+
+          <div class="editor-head">
+            <input type="text" id="titleInput" placeholder="Título potente aquí..." />
+            <input type="text" id="tagsInput" placeholder="tags: tech, cafe, ideas" />
+          </div>
+
+          <div class="toolbar">
+            <button data-snippet="# ">H1</button>
+            <button data-snippet="## ">H2</button>
+            <button data-snippet="**texto**">Negrita</button>
+            <button data-snippet="- item">Lista</button>
+            <button data-snippet="```\ncode\n```">Code</button>
+            <label class="upload-inline">Portada<input type="file" id="coverInput" accept="image/*" /></label>
+          </div>
+
+          <div class="split">
+            <textarea id="contentInput" placeholder="Escribe en Markdown... (Ctrl/Cmd + S para guardar borrador)"></textarea>
+            <article id="preview" class="preview"></article>
+          </div>
+
+          <div class="meta">
+            <span id="wordCount">0 palabras</span>
+            <span id="readTime">0 min lectura</span>
+            <span id="autosaveState">Autosave listo</span>
+          </div>
+        </section>
+
+        <aside class="panel right-panel">
+          <section>
+            <h2>Recomendaciones</h2>
+            <ol>
+              <li>Abre con historia real corta.</li>
+              <li>Incluye 1 idea aplicable hoy.</li>
+              <li>Cierra con pregunta.</li>
+            </ol>
+          </section>
+        </aside>
+      </section>
+
+      <section id="readerView" class="reader-layout">
+        <aside class="panel">
+          <h2>Feed publicado</h2>
+          <input type="search" id="readerSearch" placeholder="Buscar en publicados..." />
+          <ul id="readerList" class="post-list"></ul>
+        </aside>
+        <article id="readerArticle" class="panel reader-article"></article>
+      </section>
+    </main>
+
+    <dialog id="loginDialog">
+      <form method="dialog" class="login-box">
+        <h3>Login editor (local)</h3>
+        <p>PIN demo: <code>bytebrew</code></p>
+        <input id="pinInput" type="password" placeholder="Introduce PIN" />
+        <menu>
+          <button value="cancel">Cancelar</button>
+          <button id="confirmLoginBtn" value="default">Entrar</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <template id="postItemTemplate">
+      <li>
+        <button class="post-item">
+          <span class="status-dot"></span>
+          <span class="title"></span>
+          <small class="meta"></small>
+        </button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

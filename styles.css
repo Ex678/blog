@@ -1,0 +1,52 @@
+:root {
+  --bg: #111111;
+  --line: #273245;
+  --text: #d9f7ff;
+  --muted: #92a8bd;
+  --accent: #56f3c4;
+  --danger: #ff6978;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background: radial-gradient(circle at 18% 0%, #1f1f1f 0%, #171717 35%, var(--bg) 100%), var(--bg);
+  color: var(--text);
+}
+.scanlines { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.02), rgba(255,255,255,.02) 1px, transparent 2px, transparent 4px); }
+.topbar { border-bottom: 1px solid var(--line); padding: 1rem 1.2rem; display: grid; gap: .7rem; }
+.brand { display: flex; align-items: baseline; gap: .7rem; }
+.prompt { font-family: "Fira Code", monospace; color: var(--accent); font-size: .85rem; }
+.subtitle { color: var(--muted); margin: 0; }
+.quick-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+button, .import-btn, .upload-inline {
+  border: 1px solid var(--line); background: #121b2a; color: var(--text); border-radius: 10px;
+  padding: .5rem .8rem; font-family: "Fira Code", monospace; font-size: .85rem; cursor: pointer;
+}
+button:hover, .import-btn:hover, .upload-inline:hover { border-color: var(--accent); }
+.import-btn input, .upload-inline input { display: none; }
+.layout { display: grid; grid-template-columns: 290px 1fr 260px; gap: 1rem; padding: 1rem; }
+.reader-layout { display: grid; grid-template-columns: 320px 1fr; gap: 1rem; padding: 1rem; }
+.panel { background: linear-gradient(170deg, rgba(255,255,255,.03), rgba(255,255,255,0)); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; }
+.hidden { display: none; }
+.left-panel, .right-panel { display: grid; gap: 1rem; align-content: start; }
+.editor { display: grid; gap: .8rem; }
+input, select, textarea { width: 100%; background: #0c1220; color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: .6rem; }
+.editor-head { display: grid; grid-template-columns: 2fr 1fr; gap: .6rem; }
+.toolbar { display: flex; flex-wrap: wrap; gap: .5rem; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; min-height: 54vh; }
+textarea { min-height: 54vh; font-family: "Fira Code", monospace; line-height: 1.55; }
+.preview, .reader-article { border: 1px solid var(--line); border-radius: 12px; background: #0b1120; padding: .8rem; overflow: auto; }
+.preview img, .reader-article img { width: 100%; border-radius: 10px; margin-bottom: .7rem; }
+.preview code, .reader-article code { background: #101a30; padding: .12rem .3rem; border-radius: 5px; }
+.post-list { margin: .7rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
+.post-item { width: 100%; text-align: left; display: grid; gap: .2rem; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--danger); display: inline-block; margin-right: .3rem; }
+.post-item[data-status="published"] .status-dot { background: var(--accent); }
+.post-item .meta, .meta { color: var(--muted); }
+.meta { display: flex; justify-content: space-between; font-size: .88rem; }
+.login-box { min-width: 280px; }
+@media (max-width: 1100px) {
+  .layout, .reader-layout, .split, .editor-head { grid-template-columns: 1fr; }
+}
